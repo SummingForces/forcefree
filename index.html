@@ -1,9 +1,386 @@
 <!DOCTYPE html>
-<html>
-<title>HTML</title>
-<body>
-testest
+<html lang="en">
 
-<a href="sub.html" style="margin: 5px 0px 0 18px; background-color: orangered">Sub tab</a>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        .block-off {
+            background-color: darkseagreen;
+        }
+        
+        .block-off:hover {
+            cursor: not-allowed
+        }
+        
+        .block {
+            background-color: lightgray;
+        }
+        
+        .block:hover {
+            background-color: darkgrey;
+            cursor: pointer;
+        }
+        
+        .blocked {
+            background-color: grey;
+        }
+        
+        .blocked:hover {
+            background-color: #6a6a6a;
+            cursor: pointer;
+        }
+        
+        .bodytxt {
+            font-size: 12.5px;
+            line-height: 130%;
+        }
+        
+        .headtxt {
+            font-size: 16px;
+            font-weight: bold
+        }
+        
+        .headertxt {
+            font-size: 22px;
+            font-weight: bold
+        }
+        
+        .blocks {
+            display: inline-block;
+            margin-left: 10.5%;
+        }
+
+    </style>
+    <div id="today" style="color: darkgreen"></div><br>
+</head>
+    
+<div class="blocks block">-available courses</div><br>
+<div class="blocks blocked">-completed courses</div><br>
+<div class="blocks block-off">-unavailable courses</div>
+
+
+<body>
+
+    <center>
+        <div class="headertxt">Mechanical Engineering Curriculum <br> Fall 2015 – Spring 2016<br><br></div>
+
+        <table width="80%" border="0">
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Math 20100</div>
+                    <div class="bodytxt">Calculus I<br> Pre: Math 19500 (C min.)
+                        <div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Chem 10301</div>
+                    <div class="bodytxt">General Chemistry<br> Pre: Math 19500
+                        <div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 14500</div>
+                    <div class="bodytxt">Computer-Aided Drafting</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Engl 11000</div>
+                    <div class="bodytxt">Freshman Composition</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Engr 10100</div>
+                    <div class="bodytxt">Engineering Design<br>Pre/Co: Math 19500 (min.C) </div>
+                    <td class="block">
+                        <div class=headtxt>Liberal Arts</div>
+                    </td>
+            </tr>
+
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Math 20200</div>
+                    <div class="bodytxt">Calculus II</br>
+                        Pre: Math 20100 (C min.)
+                        <div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Phys 20700</div>
+                    <div class="bodytxt">General Physics I</br>
+                        Pre/Co: Math 20200
+                        <div>
+                </td>
+                <td class="block" colspan="2">
+                    <div class=headtxt>1st Science Elective</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Eng 21007</div>
+                    <div class="bodytxt">Writing for Engineering</br>
+                        Pre: Eng 11000 or FIQWS 10026</div</td>
+                        <td class="block">
+                            <div class=headtxt>Liberal Arts</div>
+                        </td>
+            </tr>
+
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Math 20300</div>
+                    <div class="bodytxt">Calculus III</br>
+                        Pre: Math 20200 (C min.)
+                        <div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Phys 20800</div>
+                    <div class="bodytxt">General Physics II<br>Pre: Phys 20700<br>Pre/Co: Math 20300</div>
+                </td>
+                <td class="block" colspan="2">
+                    <div class=headtxt>ME 24600</div>
+                    <div class="bodytxt">Engineering Mechanics I<br> Pre: Phys 20700 (C min.) & Math 20200 (C min.)<br> Pre/Co: ME 14500 or BME 22000<br></div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Engr 20400</div>
+                    <div class="bodytxt">Electrical Circuits<br> Pre/Co: Phys 20800 (C min.)<br> Pre/Co: Math 20300 (C min.)</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Liberal Arts</div>
+            </tr>
+
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Math 39100</div>
+                    <div class="bodytxt">Differential Equations<br> Pre: Math 20300</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 24700</div>
+                    <div class="bodytxt">Engineering Mechanics II<br> Pre: ME 24600<br> Pre/Co: Math 39100 (C min.)</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>2nd Science Elective</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 33000</div>
+                    <div class="bodytxt">Mechanics of Materials<br>Pre: Math 20300 (C min.),<br> ME 24600</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 32200</div>
+                    <div class="bodytxt">Computer Meth in Engr<br> Pre/Co: Math 39100 (C min.)</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Engr 23000</div>
+                    <div class="bodytxt">Thermodynamics<br> Pre: Chem 10301 (C min.),<br> Phys 20800 (C min.) & Math 20300 (C min.)</div>
+                </td>
+            </tr>
+
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Math 39200</div>
+                    <div class="bodytxt">Linear Algebra/Vector Analysis Pre: Math 20300</div>
+                </td>
+                <td class="block" colspan="2">
+                    <div class=headtxt>ME 31100</div>
+                    <div class="bodytxt">Fundamentals of Mechatronics<br> Pre: Math 39100 (C min.), Engr 20400, ME 24700, & ME 33000<br> Pre/Co: Math 39200, ME 32200, & Engl 21007</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 35600</div>
+                    <div class="bodytxt">Fluid Mechanics<br> Pre: Math 39100 (C min.), Phys 20800 (C min.)<br> Pre/Co: Math 39200</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 46100</div>
+                    <div class="bodytxt">Engineering Materials<br> Pre: Chem 10301 (C min.) & Engl 21007<br> Pre/Co: ME 33000</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Liberal Arts</div>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>ME 43000</div>
+                    <div class="bodytxt">Thermal Sys. Analysis & Design<br> Pre: Engr 23000 & ME 35600</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 37100</div>
+                    <div class="bodytxt">Computer-Aided Design<br> Pre: ME 14500, ME 33000 & ME 32200<br> Pre/Co: Math 39200</div>
+                </td>
+                <td class="block" colspan="2">
+                    <div class=headtxt>ME 41100</div>
+                    <div class="bodytxt">Systems Controls<br> Pre: ME 31100, ME 33000<br> Pre/Co: ME 35600</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 43300</div>
+                    <div class="bodytxt">Heat Transfer<br> Pre/Co: ME 35600</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 47200</div>
+                    <div class="bodytxt">Mech. Systems Design<br> Pre: ME 24700 & ME 33000<br> Pre/Co: ME 46100</div>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Design Elective</div><br></td>
+                <td class="block">
+                    <div class=headtxt>ME 43600</div>
+                    <div class="bodytxt">Aero-Thermal-Fluids Lab<br> Pre: ME 31100, ME 43000 & ME 43300</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 46200</div>
+                    <div class="bodytxt">Manufacturing Processes<br> Pre: ME 14500 & ME 46100</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 46300</div>
+                    <div class="bodytxt">Micro/Nano Tech.<br> Pre: ME 35600 or ChE 34100<br> Pre/Co: ME 46200</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME 47300</div>
+                    <div class="bodytxt">Senior Design Project I<br> Pre: ME 47200<br> Pre/Co: ME 37100, ME 43300,<br> ME 46200 & ME 43600 & ME 41100<br></div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Liberal Arts</div>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td class="block">
+                    <div class=headtxt>Design Elective</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Design Elective</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>ME Elective</div>
+                </td>
+                <td class="block" colspan="2">
+                    <div class=headtxt>ME 47400</div>
+                    <div class="bodytxt">Senior Design Project II<br> Pre: ME 47300 & ME 41100</div>
+                </td>
+                <td class="block">
+                    <div class=headtxt>Liberal Arts</div>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+
+    <script>
+        var d = new Date();
+        var month = 1 + d.getMonth()
+        document.getElementById("today").innerHTML = "Today is " + month + "/" + d.getDate();
+
+
+        //--------------------Initizing-----------------------------------//
+        //Get all courses #
+        var eachbox = document.getElementsByTagName("td");
+
+
+        var courses = ["Math 20100", "Chem 10301", "ME 14500", "Eng 11000", "Engr 10100", "Liberal Arts(N/A)",
+            "Math 20200", "Phys 20700", "Science Elective(N/A)", "Engl 21007", "Liberal Arts(N/A)",
+            "Math 20300", "Phys 20800", "ME 24600", "Engr 20400", "Liberal Arts(N/A)",
+            "Math 39100", "ME 24700", "Science Elective(N/A)", "ME 33000", "ME 32200", "Engr 23000",
+            "Math 39200", "ME 31100", "ME 35600", "ME 46100", "Liberal Arts(N/A)",
+            "ME 43000", "ME 37100", "ME 41100", "ME 43300", "ME 47200",
+            "Design Elective(N/A)", "ME 43600", "ME 46200", "ME Elective(N/A)", "ME 47300", "Liberal Arts(N/A)",
+            "Design Elective(N/A)", "Design Elective(N/A)", "ME Elective(N/A)", "ME 47400", "Liberal Arts(N/A)"
+        ];
+        var prequ = [0, 0, 0, 0, 0, 0,
+            1, 1, 0, 1, 0,
+            1, 2, 3, 2, 0,
+            1, 2, 0, 2, 1, 3,
+            1, 7, 3, 3, 0,
+            2, 4, 3, 1, 3,
+            0, 3, 2, 2, 6, 0,
+            0, 0, 0, 2, 0
+        ]
+
+        //check all the pre-requiste
+        for (k = 0; k < eachbox.length; k++)(function(k) { //go over all cells
+
+
+            if (prequ[k] > 0) {
+
+                eachbox[k].className = "block-off";
+            }
+
+        })(k);
+
+        //--------------------End Initizing-----------------------------------//
+
+
+
+        for (k = 0; k < eachbox.length; k++)(function(k) {
+            eachbox[k].onclick = function() {
+                if (this.className == "block") {
+                    this.className = "blocked";
+
+                    filter(k);
+                    //check condition of other boxes
+
+                    second = k + 1; //not the first one
+
+                    for (i = second; i < eachbox.length; i++) {
+
+                        if (eachbox[i].innerHTML.lastIndexOf(text) > -1) {
+                            //check if contain the class
+                            //is block-off?
+                            eachbox[i].innerHTML = eachbox[i].innerHTML.replace(text, "<i style=\"color:red; font-style: normal;\">" + text + "</i>");
+
+                            //---Check if unlock the course//
+                            prequ[i] = prequ[i] - 1;
+
+                            if (prequ[i] == 0) { //No prerequisite
+
+                                //alert(i+" "+prequ[i])
+                                eachbox[i].className = "block";
+                            }
+                        }
+                    }
+
+                } else if (this.className == "blocked") {
+                    this.className = "block";
+
+                    filter(k);
+
+                    //alert(k)
+                    second = k + 1; //not the first one
+                    //check all the pre-requiste
+                    for (j = second; j < eachbox.length; j++)(function(j) { //Start 1 because 0 is the initial box
+                        if (eachbox[j].innerHTML.lastIndexOf(text) > -1) {
+
+
+                            eachbox[j].innerHTML = eachbox[j].innerHTML.replace("<i style=\"color:red; font-style: normal;\">" + text + "</i>", text);
+
+                            //---Check if lock the course//
+                            prequ[j] = prequ[j] + 1;
+                            if (prequ[j] > 0) { //has prerequisite
+
+                                eachbox[j].className = "block-off";
+                            }
+                        }
+                    })(j);
+
+                }
+
+            }
+
+        })(k);
+
+
+        //onmouseover="check(this)"
+        // function check(col) {
+        //      alert(col.innerHTML)
+        //  }
+
+
+
+        function filter(col) {
+            text = courses[col]
+            return text;
+        }
+
+    </script>
+
+
 </body>
+
+
 </html>
