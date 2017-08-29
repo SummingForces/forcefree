@@ -292,6 +292,16 @@
             0, 0, 0, 2, 0
         ]        
 		
+		var allprequ = [0, 0, 0, 0, 0, 0,
+            1, 1, 0, 1, 0,
+            1, 2, 3, 2, 0,
+            1, 2, 0, 2, 1, 3,
+            1, 7, 3, 3, 0,
+            2, 4, 3, 1, 3,
+            0, 3, 2, 2, 6, 0,
+            0, 0, 0, 2, 0
+        ]      
+		
 		var precourse = [
 		
             "Math 20100", "Math 20200", "Engl 11000",
@@ -382,7 +392,7 @@
 					
 					eachbox[k].style.backgroundColor  = "#3498db";
 					
-					for (ii = 0; ii < prequ[k]; ii++) {
+					for (ii = 0; ii < allprequ[k]; ii++) {
 					
 					
 					checkpre(k, ii);
@@ -444,7 +454,7 @@
 		function checkpre(col, extra) {
 		total = 0;
 		for (i = 0; i<col; i++) {
-		total = total +	prequ[i];
+		total = total +	allprequ[i];
 		  }
 		  
 		total = total + extra;
