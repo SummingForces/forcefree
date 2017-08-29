@@ -4,7 +4,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <style>
+    <style>		
         .block-off {
             background-color: darkseagreen;
         }
@@ -290,6 +290,17 @@
             2, 4, 3, 1, 3,
             0, 3, 2, 2, 6, 0,
             0, 0, 0, 2, 0
+        ]        
+		
+		var precourse = [
+		
+            "Math 20100", "Math 20200", "Engl 11000",
+			"Math 20200", "Phys 20700", "Math 20300",    "Phys 20700", "Math 20200", "ME 14500",    "Phys 20800", "Math 20300",
+			"Math 20300",    "ME 24600", "Math 39100",    "Math 20300", "ME 24600",    "Math 39100",    "Chem 10301", "Phys 20800", "Math 20300",
+			"Math 20300",    "Math 39100", "Engr 20400", "ME 24700", "ME 33000", "Math 39200", "ME 32200", "Eng 21007",     "Math 39100", "Phys 20800", "Math 39200", "Chem 10301", "Engl 21007", "ME 33000",
+			"Engr 23000", "ME 35600",     "ME 14500", "ME 33000", "ME 32200", "Math 39200",     "ME 31100", "ME 33000", "ME 35600",      "ME 35600",    "ME 24700", "ME 33000", "ME 46100",
+			"ME 31100", "ME 43000", "ME 43300",     "ME 14500", "ME 46100",   "ME 35600", "ME 46200",      "ME 47200", "ME 37100", "ME 43300", "ME 46200", "ME 43600", "ME 41100",
+			"ME 47300", "ME 41100"
         ]
 
         //check all the pre-requiste
@@ -334,6 +345,8 @@
                             }
                         }
                     }
+					
+					reset();
 
                 } else if (this.className == "blocked") {
                     this.className = "block";
@@ -356,7 +369,35 @@
                                 eachbox[j].className = "block-off";
                             }
                         }
+						
+						reset();
                     })(j);
+
+                } else if (this.className == "block-off") {
+
+                    filter(k);
+		
+		reset();
+		
+					
+					eachbox[k].style.backgroundColor  = "#3498db";
+					
+					for (ii = 0; ii < prequ[k]; ii++) {
+					
+					
+					checkpre(k, ii);
+					
+					//alert(list + "--" + ii);
+					
+					    for (l = 0; l < k; l++) { //from begin
+                        if (eachbox[l].innerHTML.lastIndexOf(list) > -1) { //can't store "l", else crash
+
+							highlighted(l);
+							break;
+                        }
+                    };
+					
+														}
 
                 }
 
@@ -376,6 +417,58 @@
             text = courses[col]
             return text;
         }
+		
+		function highlighted(col) {
+		
+		oldclass = eachbox[col].style.backgroundColor;
+		
+		if (oldclass != "orange") {
+		oldclass1 = oldclass; //oldclass maybe highlight already
+		
+		//eachbox[col].style.transition = "background-color 1000ms ease-in";
+		//eachbox[col].style.webkitTransition = "background-color 1000ms ease-in";
+		//eachbox[col].style.mstransition = "background-color 1000ms ease-in";
+		
+		eachbox[col].style.backgroundColor  = "orange";
+		
+		//setTimeout(function(){eachbox[col].style.backgroundColor = oldclass1}, 2000);
+		//setTimeout(function(){
+		//eachbox[col].style.transition = "";
+		//eachbox[col].style.webkitTransition = "";
+		//eachbox[col].style.mstransition = "";}, 3000);
+		
+			}
+		
+		}
+		
+		function checkpre(col, extra) {
+		total = 0;
+		for (i = 0; i<col; i++) {
+		total = total +	prequ[i];
+		  }
+		  
+		total = total + extra;
+		
+		list = precourse[total];
+		return list ;
+		}
+		
+		function reset() {
+				//Clear all 
+		for (kk = 0; kk < eachbox.length; kk++) { //go over all cells
+
+
+            if (eachbox[kk].className == "block-off") {
+
+		eachbox[kk].style.backgroundColor  = "darkseagreen";
+            } else if (eachbox[kk].className == "block") {
+		eachbox[kk].style.backgroundColor  = "lightgray";
+		} else if (eachbox[kk].className == "blocked") {
+		eachbox[kk].style.backgroundColor  = "gray";
+		}
+
+        }
+		}
 
     </script>
 
