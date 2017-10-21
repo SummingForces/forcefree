@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +61,8 @@
 <div class="blocks block-off">-unavailable courses</div>
 
 
-<body>
+<body onload="checkCookie()">
+    <center><button style="height:30px; color:blue;" onclick="setCookie() ">SAVE Courses list</button></center>
 
     <center>
         <div class="headertxt">Mechanical Engineering Curriculum <br> Fall 2015 – Spring 2016<br><br></div>
@@ -263,11 +265,6 @@
 
 
     <script>
-        var d = new Date();
-        var month = 1 + d.getMonth()
-        document.getElementById("today").innerHTML = "Today is " + month + "/" + d.getDate();
-
-
         //--------------------Initizing-----------------------------------//
         //Get all courses #
         var eachbox = document.getElementsByTagName("td");
@@ -313,6 +310,84 @@
 			"ME 47300", "ME 41100"
         ]
 
+ //Restore last time from cookie//
+      function setCookie() {
+          cname = "classes";
+          
+          cvalue="";
+        for (co = 0; co < eachbox.length; co++)(function(co) { //go over all cells
+
+
+                if (eachbox[co].className == "blocked") {
+                    cvalue = cvalue + "1"
+                } else {cvalue = cvalue + "0"}
+        //alert(eachbox[co].className)
+        })(co);
+         
+                   // alert(cvalue)
+          
+          exdays = 1;
+          
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+          alert("Courses saved to your brower cookie")
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var classes = getCookie("classes");
+    if (classes != "") {
+        //alert("Welcome again " + classes);
+        
+        //restore last time changes
+        for (coo = 0; coo < eachbox.length; coo++)(function(coo) { //go over all cells
+
+
+                if (classes[coo] == 1) {
+                                eachbox[coo].className = "blocked";
+                    second = coo + 1; //not the first one
+                    filter(coo);
+                    for (cooi = second; cooi < eachbox.length; cooi++) {
+                            eachbox[cooi].innerHTML = eachbox[cooi].innerHTML.replace(text, "<i style=\"color:red; font-style: normal;\">" + text + "</i>");
+
+                        if (eachbox[cooi].innerHTML.lastIndexOf(text) > -1) {
+                            //---Check if unlock the course//
+                            prequ[cooi] = prequ[cooi] - 1;
+
+                            if (prequ[cooi] == 0) { //No prerequisite
+
+                                //alert(i+" "+prequ[i])
+                                eachbox[cooi].className = "block";
+                            }
+                        }
+                    
+                    }
+                }
+        })(coo);
+    } else {
+     //   alert("no data found");
+        }
+    }
+        
+//Cookie end//
+        
+
         //check all the pre-requiste
         for (k = 0; k < eachbox.length; k++)(function(k) { //go over all cells
 
@@ -325,6 +400,10 @@
         })(k);
 
         //--------------------End Initizing-----------------------------------//
+        
+        var d = new Date();
+        var month = 1 + d.getMonth()
+        document.getElementById("today").innerHTML = "Today is " + month + "/" + d.getDate();
 
 
 
